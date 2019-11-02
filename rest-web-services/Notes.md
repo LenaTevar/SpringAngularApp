@@ -87,4 +87,10 @@ public class HelloPath {
 }
 
 ```
-
+# Connect Angular vs Back Spring
+We want to allow requests from 4200 (Angular port) with cross origin
+```
+@CrossOrigin (origins="http://localhost:4200")
+@RestController
+public class HelloWorldController {...}
+```
