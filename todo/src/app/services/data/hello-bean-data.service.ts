@@ -26,6 +26,10 @@ export class HelloBeanDataService {
   executeHelloBeanService(){
     return this.http.get<HelloSpringBean>('http://localhost:8080/hello-bean/')
   }
+
+  executeHelloPathBeanService(name){
+    return this.http.get<HelloSpringBean>(`http://localhost:8080/hello/path/${name}`)
+  }
 }
 /**
  * Created to easy manipulate the content of the bean response.

@@ -31,13 +31,30 @@ export class WelcomeComponent implements OnInit {
    * get more information about the bean.
    */
   getWelcomeMessage() {
-    this.hbd.executeHelloBeanService().subscribe(response => {
+    this.hbd.executeHelloBeanService()
+    .subscribe(response => {
       this.handleSuccess(response)
+    },
+    error => {
+      this.handleError(error)
+    })
+  }
+
+  getWelcomePathMessage(){
+    this.hbd.executeHelloPathBeanService(this.username)
+    .subscribe(response => {
+      console.log(response)
+      this.handleSuccess(response)
+    },
+    error=>{
+      this.handleError(error)
     })
   }
 
   handleSuccess(response) {
     this.serviceMessage = response.message
   }
-
+  handleError(error){
+    this.serviceMessage = error.error.message
+  }
 }

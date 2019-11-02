@@ -1,11 +1,13 @@
-
 <div class="jumbotron">
-    <h1 class="display-4">Hello, {{username}}!</h1>   
+    <h1 class="display-4">Hello, {{username}}!</h1>
     <p>You can manage your todo's in the button.</p>
     <a class="btn btn-primary btn-lg" routerLink="/todos" role="button">TODOS</a>
     <hr class="my-4">
-    <p>Click here to call the  spring app</p>
+    <p>Click here to call the spring app</p>
+
     <button class="btn btn-success btn-lg" (click)="getWelcomeMessage()">CALL SPRING</button>
+    <button class="btn btn-success btn-lg" (click)="getWelcomePathMessage()">CALL SPRING 2</button>
+
     <div *ngIf="serviceMessage">
         <h2>{{serviceMessage}}</h2>
     </div>
