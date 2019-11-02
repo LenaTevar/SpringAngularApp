@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../services/data/todo-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-todos',
@@ -16,7 +17,8 @@ export class ListTodosComponent implements OnInit {
     new Todo(3, 'Eat Rich', false, new Date())
 
   ]*/
-  constructor(private tds: TodoDataService) { }
+  constructor(private tds: TodoDataService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getAllByUser()
@@ -27,6 +29,10 @@ export class ListTodosComponent implements OnInit {
       this.getAllByUser()
     }
     )
+  }
+  updatetodo(id){
+    console.log("update ", id)
+    this.router.navigate(['todos',id])
   }
   getAllByUser(){
     this.tds.getTodosByUsername('lena').subscribe(response => {

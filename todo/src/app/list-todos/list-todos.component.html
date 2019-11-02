@@ -9,7 +9,8 @@
       <th scope="col">Description</th>
       <th scope="col">Status</th>
       <th scope="col">Date</th>
-      <th>aaaa</th>
+      <th scope="col">DELETE</th>
+      <th scope="col">UPDATE</th>
     </tr>
   </thead>
   <tbody *ngFor="let todo of todos">
@@ -21,6 +22,10 @@
       <td>
         <button (click)="deletetodo(todo.id)" 
         class="btn btn-primary">DELETE</button>
+      </td>
+      <td>
+        <button (click)="updatetodo(todo.id)" 
+        class="btn btn-primary">UPDATE</button>
       </td>
     </tr>
 
