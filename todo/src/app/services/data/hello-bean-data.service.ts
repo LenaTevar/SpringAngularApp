@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 /**
  * Links backend to frontend. 
- * httpClient commom angular gives the functionality
- * Once Spring server is up and runnig just make a get request. 
+ * httpClient commom angular gives the functionality.
+ * Once Spring server is up and runnig just make a get request
+ * to the local address of Spring server (normally in port 8800). 
  * The address will be handled by spring  controller, that will return
- * whateve you wrote there...
+ * whatever you wrote it should happen when making a get request to 
+ * that specific address
  */
 export class HelloBeanDataService {
 
@@ -17,15 +19,17 @@ export class HelloBeanDataService {
     private http: HttpClient
   ) { }
 
+  /**
+   * Check up Spring Hello World controller get mapping to this url
+   * @returns Observable of HelloSpringBean data
+   */
   executeHelloBeanService(){
-    console.log("Hello Bean Service")
-    /* Check up Spring Hello World controller get mapping to this url
-      Returns an observable
-     */
     return this.http.get<HelloSpringBean>('http://localhost:8080/hello-bean/')
   }
 }
-
+/**
+ * Created to easy manipulate the content of the bean response.
+ */
 export class HelloSpringBean {
   constructor(public message:string){}
 }

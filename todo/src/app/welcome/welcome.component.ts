@@ -12,7 +12,10 @@ export class WelcomeComponent implements OnInit {
   username = ''
   serviceMessage
   /**
-   * app routing added a param, login ts navigates to here + param name
+   * Login sent to this address with a param name.
+   * ActivatedRoute will check the route snapshot param 'name'
+   * to get the user name.
+   * 
    */
   constructor(private route: ActivatedRoute,
     private hbd: HelloBeanDataService) { }
@@ -21,12 +24,16 @@ export class WelcomeComponent implements OnInit {
     this.username = this.route.snapshot.params['name']
   }
 
+  /**
+   * Calling the HelloBeanDataService that makes a get
+   * request to the bean url. 
+   * Check up Spring project Hello World Controller to 
+   * get more information about the bean.
+   */
   getWelcomeMessage() {
-    console.log("welcome component")
     this.hbd.executeHelloBeanService().subscribe(response => {
       this.handleSuccess(response)
     })
-
   }
 
   handleSuccess(response) {
