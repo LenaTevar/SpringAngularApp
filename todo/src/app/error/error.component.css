@@ -1,0 +1,7 @@
+span {
+    background-color: rgb(255, 152, 172);
+    color: crimson;
+    border: 1px crimson solid;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
