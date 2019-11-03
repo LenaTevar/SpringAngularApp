@@ -2,9 +2,12 @@
 
  Trying to get how to use Angular as frontend and Java Spring as backend.
 
-## Folders
+## Frontend
 
-- todo - Angular project (todo list)
+- Angular cli : todo
+
+## Backend
+
 - rest-web-services - Java Spring MVC project
 
 ## Important

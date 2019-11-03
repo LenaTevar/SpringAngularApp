@@ -11,6 +11,7 @@ export class ListTodosComponent implements OnInit {
   todos: Todo[]
   systemMsg
   username
+  newTodoId = -1
 /*
   todos = [
     new Todo(1, 'Dance', false, new Date()),
@@ -40,6 +41,10 @@ export class ListTodosComponent implements OnInit {
     this.tds.getTodosByUsername(this.username).subscribe(response => {
       this.todos = response
     })
+  }
+  add(){
+    console.log("add")
+    this.router.navigate(['todos',this.username,this.newTodoId])
   }
 
 }

@@ -10,15 +10,21 @@ import { Todo } from '../list-todos/list-todos.component';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  todo : Todo = new Todo(-1, "Waiting", false, new Date());
+  todo : Todo 
   routeID
   routeUsername
-  constructor( private route: ActivatedRoute, private tds: TodoDataService) { }
+  constructor( private route: ActivatedRoute, private tds: TodoDataService) {
+   
+   }
 
   ngOnInit() {
+    this.todo = new Todo(-1, "Waiting", false, new Date())
+    
     this.routeID = this.route.snapshot.params['id']
     this.routeUsername = this.route.snapshot.params['name']
-    this.tds.getTodoById(this.routeUsername, this.routeID).subscribe(response=> this.todo = response)
+    if(this.routeID != -1){
+      this.tds.getTodoById(this.routeUsername, this.routeID).subscribe(response=> this.todo = response)
+    }
   }
   sendTodo(){
     this.tds.saveTodoById(this.routeUsername, this.routeID, this.todo).subscribe();
