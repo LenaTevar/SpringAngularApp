@@ -1,1 +1,27 @@
-<p>todo works!</p>
+<div class="card mx-auto" >
+    <form>
+        <div class="form-group">
+            <label for="description">description</label>
+            <input type="text" 
+            class="form-control"
+            id="description" 
+            name="description" 
+            required="required"
+            [(ngModel)]="todo.description"
+            >
+        </div>
+
+        <div class="form-group">
+                <label for="targetdate">Date</label>
+                <input type="date" 
+                class="form-control" 
+                id="targetdate"
+                name="targetdate" 
+                required="required"
+                [ngModel]="todo.targetDate |  date:'yyyy-MM-dd'"
+                (ngModelChange)="todo.targetDate = $event"> 
+            </div>
+        <input type="button" value="Send" class="btn btn-warning" (click)="sendTodo()">
+    </form>
+
+</div>

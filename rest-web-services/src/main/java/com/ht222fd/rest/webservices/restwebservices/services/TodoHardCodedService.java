@@ -24,6 +24,14 @@ public class TodoHardCodedService {
 	public List<Todo> findAll(){
 		return todos;
 	}
+	
+	public Todo findTodoById(Long id) {
+		Todo todo = findById(id);
+		
+		if(todo == null ) return null;
+		
+		return todo; 
+	}
 	/**
 	 * Finds the task with the same id and removes it from the list. 
 	 * If the task is found, then return the task deleted. 

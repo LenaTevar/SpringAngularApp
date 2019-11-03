@@ -27,5 +27,8 @@ export class HarcodedAuthService {
   userIsLogged(){
     return !(sessionStorage.getItem('authGuard')===null)   
   }
+  getUser(){
+    return sessionStorage.getItem('authGuard')
+  }
 
 }
