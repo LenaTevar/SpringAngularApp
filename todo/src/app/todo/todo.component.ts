@@ -21,6 +21,6 @@ export class TodoComponent implements OnInit {
     this.tds.getTodoById(this.routeUsername, this.routeID).subscribe(response=> this.todo = response)
   }
   sendTodo(){
-    console.log(this.todo)
+    this.tds.saveTodoById(this.routeUsername, this.routeID, this.todo).subscribe();
   }
 }
