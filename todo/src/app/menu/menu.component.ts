@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HarcodedAuthService } from '../services/harcoded-auth.service';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-menu',
@@ -9,14 +9,12 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   username
-  constructor(private router: Router,private hardAuth: HarcodedAuthService,  ) { 
+  constructor(private hardAuth: HarcodedAuthService,  ) { 
   }
 
   ngOnInit() {
     this.username = this.hardAuth.getUser()
   }
 
-  routeTodos(){    
-    this.router.navigate(['todos', this.username])
-  }
+  
 }

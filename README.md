@@ -12,5 +12,4 @@
 
 ## Important
 
-I have only 1 day to do this and is for research purposes, so expected to be
-abandoned until needed.
+This project is just for research, all the database is left for another moment.
